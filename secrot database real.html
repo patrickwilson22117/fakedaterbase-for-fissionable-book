@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> internetgaming.com - great gaming online </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+    position: fixed; /* Use fixed positioning to center the container */
+    top: 50%; /* Position the top edge at 50% of the viewport height */
+    left: 50%; /* Position the left edge at 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Center the container */
+    max-width: 80%; /* Max width of 80% of the viewport width */
+    max-height: 80%; /* Max height of 80% of the viewport height */
+    width: 80%; /* Set width to 80% */
+    height: 80%; /* Set height to 80% */
+    padding: 20px; /* Padding inside the container */
+    border: 1px solid #333; /* Border styling */
+    border-radius: 10px; /* Rounded corners */
+    background-image: url('https://i.ibb.co/YTBMhYQ/pexels-lulizler-3165335.jpg'); /* Set background image */
+    background-size: cover; /* Cover the entire container area */
+    background-position: center; /* Center the background image */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Shadow effect */
+    text-align: center; /* Center text */
+    overflow-y: auto; /* Allows scrolling if content exceeds max-height */
+}
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5c9f5c;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .biometrics {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .file-browser {
+            margin-top: 20px;
+            display: none;
+        }
+        .file-item {
+            padding: 5px;
+            cursor: pointer;
+            border: 1px solid #555;
+            margin: 5px;
+        }
+        .file-item:hover {
+            background-color: #333;
+        }
+        .report-content {
+            display: none;
+            margin-top: 20px;
+            background-color: #222;
+            padding: 10px;
+            border: 1px solid #444;
+        }
+        .logout {
+            margin-top: 20px;
+            display: none;
+        }
+        @keyframes scanAnimation {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .scan {
+            height: 50px;
+            width: 50px;
+            border: 2px solid #5c9f5c;
+            border-radius: 50%;
+            margin: auto;
+            animation: scanAnimation 1s infinite;
+        }
+        body {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container" id="login" style="text-align: center;">
+    <h1>Login to internetgaming.com</h1>
+    <h3>Great gaming online</h3>
+    <input type="text" id="username" placeholder="Username" style="width: 50%; padding: 10px; margin: 10px 0; border: 1px solid #333; border-radius: 5px;">
+    <input type="password" id="password" placeholder="Password" style="width: 50%; padding: 10px; margin: 10px 0; border: 1px solid #333; border-radius: 5px;">
+    <button onclick="login()" style="width: 51%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px; background-color: #4CAF50; color: white; cursor: pointer; font-size: 16px;">Log In</button>
+</div>
+
+    <div class="biometrics" id="biometrics">
+        <h1>Biometrics Scan</h1>
+        <h3>if you did not expect to reach this page please leave now or you will be reported to the securtey services for hacking content covered by the secrets act.</h3>
+        <div class="scan"></div>
+        <p>Scanning...</p>
+        <button onclick="enterDatabase()">Continue - TOP SECRET HIGHLY CONFIDENTIAL</button>
+    </div>
+    <div class="file-browser" id="file-browser">
+        <h2>TOP SECRET - E SQUDREN SAS CENTURION TEAM FILES</h2>
+        <div class="file-item" onclick="openReport('operative')">Operative Reports</div>
+        <div class="file-item" onclick="openReport('training')">Training Reports</div>
+        <div class="file-item" onclick="openReport('operations')">Operations Reports</div>
+        <div class="file-item" onclick="openReport('secret')">Secret Files</div>
+        <button class="logout" onclick="logout()">Logout</button>
+    </div>
+    <div id="report" class="report-content"></div>
+    <script>
+        function login() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('biometrics').style.display = 'block';
+        }
+
+        function enterDatabase() {
+            document.getElementById('biometrics').style.display = 'none';
+            document.getElementById('file-browser').style.display = 'block';
+            document.querySelector('.logout').style.display = 'block';
+        }
+
+        function openReport(reportType) {
+            let content = '';
+            switch(reportType) {
+                case 'operative':
+                    content = `
+                        <h2>Operative Reports</h2>
+                        <p><strong>CLASSIFIED SUBJECT TO THE OFFICIAL SECRETS ACT LEVAL ALPHA</strong></p>
+                        <h3>Daisy Lawson</h3>
+                        <a href="https://ibb.co/Khpz0V2"><img src="https://i.ibb.co/9gk38yb/dasiy-lawson-wet-jump-op-blured-out.png" alt="dasiy-lawson-wet-jump-op-blured-out" border="0"></a>
+                        <h2>Personnel File: Operative Daisy Lawson</h2>
+<p><strong>Code Name:</strong> Centurion 1</p>
+<p><strong>Age:</strong> 15</p>
+<p><strong>Status:</strong> Active</p>
+<p><strong>Role:</strong> Team Leader, Tactical Operative</p>
+<p><strong>Security Clearance Level:</strong> Alpha</p>
+
+<h3>Background:</h3>
+<p>Daisy Lawson, now 15, became one of the most resourceful and quick-thinking operatives in the aftermath of a nuclear apocalypse that devastated Britain. At the age of 12, her life was shattered when nuclear bombs claimed the lives of her parents and destroyed her home. Alongside her twin brother Ben, Daisy spent two grueling years living in the ruins, scavenging for food and evading threats. These survival experiences forged her into a natural leader, showing a unique combination of resilience, intelligence, and tactical planning.</p>
+
+<p>Daisy was recruited into the organization after being identified for her leadership abilities and adaptability in hostile environments. Her performance in training surpassed expectations, marking her as a standout recruit. Despite her age, Daisy demonstrates emotional maturity far beyond her years, often stepping into leadership roles in high-stress situations. Her calm demeanor under pressure and strategic thinking have proven invaluable in operations involving sabotage, undercover missions, and extractions.</p>
+
+<p>Her progression in the program has made her a vital asset to the team, where she is responsible not only for mission success but also for maintaining the cohesion and morale of her fellow operatives. Her connection to her twin brother Ben further strengthens their effectiveness as a unit.</p>
+
+<h3>Operative Attributes:</h3>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="padding: 8px; text-align: left;">Attribute</th>
+        <th style="padding: 8px; text-align: left;">Details</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Full Name:</td>
+        <td style="padding: 8px;">Daisy Lawson</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Age:</td>
+        <td style="padding: 8px;">15</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Role:</td>
+        <td style="padding: 8px;">Team Leader</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Skills:</td>
+        <td style="padding: 8px;">Tactical Planning, Hand-to-Hand Combat, Leadership</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Primary Strength:</td>
+        <td style="padding: 8px;">Resilience, Quick Thinking</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Psychological Evaluation:</td>
+        <td style="padding: 8px;">High emotional maturity, Calm under pressure</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Physical Conditioning:</td>
+        <td style="padding: 8px;">Above average endurance, strong combat abilities</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Twin Operative:</td>
+        <td style="padding: 8px;">Ben Lawson</td>
+    </tr>
+</table>
+
+<h3>Psychological Profile:</h3>
+<p>Daisy's psychological resilience stands out in the wake of personal tragedy. Despite the trauma of losing her family and living in harsh conditions, she has shown remarkable emotional stability. Her ability to remain calm and collected under intense pressure makes her a natural leader, often placing the success of her team above her own safety. This sense of duty and her strong bond with her brother Ben enhances their operational success.</p>
+
+<h3>Additional Notes:</h3>
+<p>Daisy continues to show extraordinary leadership potential. Future training will focus on expanding her strategic planning skills and enhancing her knowledge of advanced combat techniques. Despite her youth, Daisy has proven herself more than capable of handling the demands placed on her by the organization.</p>
+
+<p><strong>End of Report</strong><br>
+<strong>Confidential: Property of The Increment</strong></p>
+
+                        <h3>William Copper</h3>
+                        <a href="https://ibb.co/fFmNFhL"><img src="https://i.ibb.co/8sFxsWt/williom-blurd-face.png" alt="williom-blurd-face" border="0"></a>
+
+                        <h2>Personnel File: Operative William Copper</h2>
+<p><strong>Code Name:</strong> Centurion 2</p>
+<p><strong>Age:</strong> 16</p>
+<p><strong>Status:</strong> Active</p>
+<p><strong>Role:</strong> Tactical Operative</p>
+<p><strong>Security Clearance Level:</strong> Alpha</p>
+
+<h3>Background:</h3>
+<p>William Copper, now 16, has evolved into a skilled tactical operative following the devastation of his home and family during a nuclear apocalypse. At the age of 13, William witnessed the destruction of his childhood and the loss of his family, which propelled him into a fight for survival alongside his sister, Robin. Together, they navigated the treacherous landscape of post-apocalyptic Britain, honing their instincts and resilience. William’s background has instilled in him a profound sense of duty to protect those who cannot protect themselves.</p>
+
+<p>Recruited into the organization shortly after his survival training, William quickly demonstrated his aptitude for tactical thinking and adaptability. His experiences have made him both resourceful and determined, showcasing a natural talent for combat and strategic planning. Despite his youth, he is often relied upon for his insights during high-stakes missions, where quick decisions are paramount.</p>
+
+<p>William’s bond with his sister Robin and fellow operatives, particularly Daisy, enhances his capability as a team player. His ability to communicate effectively and collaborate under pressure makes him an invaluable asset to the team.</p>
+
+<h3>Operative Attributes:</h3>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="padding: 8px; text-align: left;">Attribute</th>
+        <th style="padding: 8px; text-align: left;">Details</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Full Name:</td>
+        <td style="padding: 8px;">William Copper</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Age:</td>
+        <td style="padding: 8px;">15</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Role:</td>
+        <td style="padding: 8px;">Tactical Operative</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Skills:</td>
+        <td style="padding: 8px;">Tactical Thinking, Hand-to-Hand Combat, Problem Solving</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Primary Strength:</td>
+        <td style="padding: 8px;">Strategic Planning, Team Communication</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Psychological Evaluation:</td>
+        <td style="padding: 8px;">Resilient, Strong moral compass</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Physical Conditioning:</td>
+        <td style="padding: 8px;">Well-conditioned, proficient in combat</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Sister Operative:</td>
+        <td style="padding: 8px;">Robin Copper</td>
+    </tr>
+</table>
+
+<h3>Psychological Profile:</h3>
+<p>William exhibits remarkable psychological resilience despite the traumatic experiences of his past. The loss of his family has instilled a fierce determination in him to protect others, particularly his sister Robin. He maintains a strong moral compass, ensuring that his actions are guided by principles of justice and compassion. His ability to communicate effectively and support his team members enhances their operational effectiveness, establishing him as a trusted figure among his peers.</p>
+
+<h3>Additional Notes:</h3>
+<p>William continues to show significant potential as a tactical operative. Future training will focus on enhancing his strategic thinking abilities and advancing his knowledge of counter-intelligence techniques. His contributions to the team are invaluable, and he is well on his way to becoming a key player in the organization's missions.</p>
+
+<p><strong>End of Report</strong><br>
+<strong>Confidential: Property of The Increment</strong></p>
+
+                        <h3>Robin Copper</h3>
+                        <a href="https://ibb.co/GsFYsDT"><img src="https://i.ibb.co/vsDysWY/robin-blured-face.png" alt="robin-blured-face" border="0"></a>
+                        <h2>Personnel File: Operative Robin Copper</h2>
+<p><strong>Code Name:</strong> Centurion 4</p>
+<p><strong>Age:</strong> 14</p>
+<p><strong>Status:</strong> Active</p>
+<p><strong>Role:</strong> Tactical Operative</p>
+<p><strong>Security Clearance Level:</strong> Alpha-7</p>
+
+<h3>Background:</h3>
+<p>Robin Copper, 14 years old, is a highly capable tactical operative who brings a unique perspective to the team. The events of the nuclear catastrophe drastically altered his life, forcing him and his family to adapt to a new reality where survival is paramount. As the only survivor of his immediate family, Robin has shown immense resilience in the face of adversity, channeling his experiences into becoming a dedicated member of The Increment.</p>
+
+<p>Following the loss of his family, Robin spent a significant amount of time learning to fend for himself, honing skills in survival, stealth, and resourcefulness. His ability to navigate through danger and maintain composure in high-pressure situations distinguishes him as a valuable asset to the team. Robin's background in survival tactics and urban evasion has prepared him well for the challenges faced during missions.</p>
+
+<p>Despite his youth, Robin exhibits natural leadership qualities, often stepping in to support his teammates during training and operations. His quick thinking and adaptability make him a trusted operative, particularly in situations requiring rapid decision-making and tactical adjustments.</p>
+
+<h3>Operative Attributes:</h3>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="padding: 8px; text-align: left;">Attribute</th>
+        <th style="padding: 8px; text-align: left;">Details</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Full Name:</td>
+        <td style="padding: 8px;">Robin Copper</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Age:</td>
+        <td style="padding: 8px;">14</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Role:</td>
+        <td style="padding: 8px;">Tactical Operative</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Skills:</td>
+        <td style="padding: 8px;">Survival Tactics, Stealth, Urban Evasion</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Primary Strength:</td>
+        <td style="padding: 8px;">Resourcefulness, Quick Decision-Making</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Psychological Evaluation:</td>
+        <td style="padding: 8px;">Resilient, Adaptive, Strong Sense of Loyalty</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Physical Conditioning:</td>
+        <td style="padding: 8px;">Fit, Agile, Proficient in Stealth Techniques</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Siblings:</td>
+        <td style="padding: 8px;">William Copper</td>
+    </tr>
+</table>
+
+<h3>Psychological Profile:</h3>
+<p>Robin's experiences have instilled in him a deep sense of resilience and determination. He approaches challenges with a calm demeanor and demonstrates a strong commitment to his teammates. His loyalty is unwavering, and he is often seen as a stabilizing presence within the group. Robin's ability to adapt to new situations and think creatively under pressure makes him an invaluable member of The Increment.</p>
+
+<h3>Additional Notes:</h3>
+<p>Robin continues to excel in his training, particularly in stealth operations and reconnaissance. Further training will focus on enhancing his combat skills and building leadership abilities to prepare him for more complex missions. His potential for growth as an operative is significant, and he is expected to play a crucial role in future operations.</p>
+
+<p><strong>End of Report</strong><br>
+<strong>Confidential: Property of The Increment</strong></p>
+                        <h3>Ben Lawson</h3>
+                        <a href="https://ibb.co/2SK4NXH"><img src="https://i.ibb.co/tzCrXyF/ben-blured-out-face.png" alt="ben-blured-out-face" border="0"></a>
+                        <h2>Personnel File: Operative Ben Lawson</h2>
+<p><strong>Code Name:</strong> Centurion 3</p>
+<p><strong>Age:</strong> 15</p>
+<p><strong>Status:</strong> Active</p>
+<p><strong>Role:</strong> Tactical Operative</p>
+<p><strong>Security Clearance Level:</strong> Alpha</p>
+
+<h3>Background:</h3>
+<p>Ben Lawson, 15 years old, has developed into a formidable tactical operative following the catastrophic events of his childhood. Along with his twin sister, Daisy, Ben's life was forever altered when nuclear bombs devastated their home, claiming the lives of their family. For two years, the siblings fought for survival on the harsh streets of post-apocalyptic Britain, relying on their wits and the bond they share to navigate a world fraught with danger.</p>
+
+<p>Ben’s innate ability to think quickly on his feet has proven invaluable during high-stress situations. He is known for his sharp analytical skills and innovative problem-solving, allowing him to adapt to unexpected challenges during missions. The hardships endured during their survival period have instilled in him a strong sense of loyalty and determination to protect his sister and their team at all costs.</p>
+
+<p>As a member of the covert organization, Ben has been trained in various tactical disciplines, including hand-to-hand combat, reconnaissance, and stealth operations. His teamwork with Daisy and the other operatives showcases his ability to collaborate effectively, often stepping up to provide support and guidance when needed.</p>
+
+<h3>Operative Attributes:</h3>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="padding: 8px; text-align: left;">Attribute</th>
+        <th style="padding: 8px; text-align: left;">Details</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Full Name:</td>
+        <td style="padding: 8px;">Ben Lawson</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Age:</td>
+        <td style="padding: 8px;">15</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Role:</td>
+        <td style="padding: 8px;">Tactical Operative</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Skills:</td>
+        <td style="padding: 8px;">Analytical Thinking, Hand-to-Hand Combat, Team Support</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Primary Strength:</td>
+        <td style="padding: 8px;">Innovative Problem Solving, Strategic Collaboration</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Psychological Evaluation:</td>
+        <td style="padding: 8px;">Loyal, Determined, Strong Emotional Resilience</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Physical Conditioning:</td>
+        <td style="padding: 8px;">Well-conditioned, proficient in combat</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px;">Twin Sister:</td>
+        <td style="padding: 8px;">Daisy Lawson</td>
+    </tr>
+</table>
+
+<h3>Psychological Profile:</h3>
+<p>Ben demonstrates exceptional emotional resilience, shaped by the loss he experienced in his early years. His close relationship with Daisy has fostered a strong sense of loyalty, motivating him to ensure her safety during missions. He embodies a balance of toughness and compassion, supporting his teammates and leveraging his analytical abilities to navigate complex situations.</p>
+
+<h3>Additional Notes:</h3>
+<p>Ben continues to excel in his training, particularly in strategic planning and reconnaissance techniques. Future training will focus on enhancing his combat skills and exploring advanced tactical operations. His growth as an operative is promising, and he is expected to take on more significant roles in upcoming missions.</p>
+
+<p><strong>End of Report</strong><br></p>
+<p><strong>Confidential: Property of E Squdren SAS (The Increment) MOD CLASSIFIED SUBJECT TO THE OFFICIAL SECRETS ACT LEVAL ALPHA </strong></p>
+<h3> end of full report </h3></p>
+                    `;
+                    break;
+                case 'training':
+                    content = `
+                     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description here"> <!-- Example content= tag -->
+    <title>Your Title Here</title>
+    <style>
+        /* Container for the iframe to position it on the right side of the viewport */
+        #container {
+            position: fixed; /* Use fixed positioning to keep it in place */
+            top: 0;
+            right: 0; /* Align to the right */
+            width: 50vw; /* Set width to half of the viewport */
+            height: 100vh; /* Set height to full viewport height */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Styling the iframe */
+        iframe {
+            width: 100%; /* Set width to 100% of the container */
+            height: 100%; /* Set height to 100% of the container */
+            border: none; /* Remove border */
+            filter: invert(1); /* Invert colors */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your other content goes here -->
+
+    <div id="container">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vQN1i6OSMazmjPobfH92yep98A9lq_8AYYLaWB6qntPyYJ4DIsCjV4yz4-mYWuPpnFRHB9cP-dOw9q7/pub?embedded=true"></iframe>
+    </div>
+
+    <!-- More content can follow if needed -->
+</body>
+</html>
+                    `;
+                    break;
+                case 'operations':
+                    content = `
+                        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description here"> <!-- Example content= tag -->
+    <title>Your Title Here</title>
+    <style>
+        /* Container for the iframe to position it on the right side of the viewport */
+        #container {
+            position: fixed; /* Use fixed positioning to keep it in place */
+            top: 0;
+            right: 0; /* Align to the right */
+            width: 50vw; /* Set width to half of the viewport */
+            height: 100vh; /* Set height to full viewport height */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Styling the iframe */
+        iframe {
+            width: 100%; /* Set width to 100% of the container */
+            height: 100%; /* Set height to 100% of the container */
+            border: none; /* Remove border */
+            filter: invert(1); /* Invert colors */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your other content goes here -->
+
+    <div id="container">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vSIxdUizuLI8hM-oQfzaDWiHoVZ9KSGM5Pzivv_o2RYR5y-NEsdVvaBcylaSNPDkKhds5O7rhi09dbP/pub?embedded=true"></iframe>
+    </div>
+
+</body>
+</html></p>
+                    `;
+                    break;
+                case 'secret':
+                    content = `
+                        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description here"> <!-- Example content= tag -->
+    <title>Your Title Here</title>
+    <style>
+        /* Container for the iframe */
+        #container {
+            position: fixed; /* Fixed position to keep it in place */
+            top: 0;
+            right: 0; /* Align to the right */
+            width: 50vw; /* Set width to half of the viewport */
+            height: 100vh; /* Set height to full viewport height */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Styling the iframe */
+        iframe {
+            width: 100%; /* Set width to 100% of the container */
+            height: 100%; /* Set height to 100% of the container */
+            border: none; /* Remove border */
+            filter: invert(1); /* Invert colors */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRHmfmyl5CV6I-8vGKjImnqy_9rTWP_7bIqlHMM7asjqxkTL1PB_StIdiMRI7neFXGyXyvdH5yTIcw2/pub?embedded=true"></iframe>
+    </div>
+</body>
+</html>
+
+                        <h2>Access to one Secret File permited to right</h2>
+                        <h2>other files are above your clearence</h2>
+                        <h1> ACCESS DENIED</h1>
+                        <h2> ERROR 96758 </h2>
+                        <h2> ILLEGAL ACCESS </h2> </p>
+                    `;
+                    break;
+            }
+            document.getElementById('report').innerHTML = content;
+            document.getElementById('report').style.display = 'block';
+        }
+
+        function logout() {
+            document.getElementById('file-browser').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('report').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
